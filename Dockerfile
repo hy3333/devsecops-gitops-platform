@@ -10,6 +10,7 @@ COPY app/requirements.txt /code/requirements.txt
 
 RUN python -m pip install --no-cache-dir --upgrade pip && \
     python -m pip install --no-cache-dir -r /code/requirements.txt && \
+    python -m pip uninstall --yes setuptools wheel && \
     addgroup --system app && \
     adduser --system --ingroup app app && \
     chown app:app /code
